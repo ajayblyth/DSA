@@ -117,7 +117,7 @@ return true;
     private Node tail;
     private int length;
 
-    class Node {
+    private class Node {
         private int value;
         private Node next;
 
