@@ -24,7 +24,7 @@ public  class LinkedList {
         prev.next = temp.next;
         temp.next = null;
         length--;
-return temp;
+        return temp;
     }
     public boolean insert(int index, int value){
         if(index < 0 || index >= length)return false;
@@ -32,7 +32,7 @@ return temp;
             prepend(value);
             return true;
         }
-        if(index == length){
+        if(index == length-1){
             append(value);
             return  true;
         }
