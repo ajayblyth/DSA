@@ -4,7 +4,7 @@ public  class LinkedList {
         myLinkedList.append(23);
         myLinkedList.prepend(20);
 //       myLinkedList.removeLast();
-//        myLinkedList.removeFirst();
+    myLinkedList.removeFirst();
 
         myLinkedList.getHead();
         myLinkedList.getTail();
