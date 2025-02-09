@@ -7,7 +7,7 @@ public  class LinkedList {
 //    myLinkedList.removeFirst();
         myLinkedList.remove(2);
 //        System.out.println(myLinkedList.get(2).value);
-//        myLinkedList.set(2 , 30);
+        myLinkedList.set(2 , 30);
         myLinkedList.insert(1, 15);
         myLinkedList.getHead();
         myLinkedList.getTail();
@@ -15,7 +15,7 @@ public  class LinkedList {
         myLinkedList.printAll();
 
     }
-    public Node remove(int index){
+    private Node remove(int index){
         if(index < 0 || index >= length) return null;
         if (index ==0) return removeFirst();
         if (index == length -1) return removeLast();
