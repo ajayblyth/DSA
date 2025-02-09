@@ -1,4 +1,4 @@
-package array;
+package Basic;
 
 public class Reverse {
     public static void main (String[] args){
@@ -14,7 +14,6 @@ public class Reverse {
             arr [size-i-1] = temp;
 
         }
-        System.out.println(arr);
         for(int c : arr){
             System.out.println(c);
         }
