@@ -1,18 +1,30 @@
 public  class LinkedList {
     public static void main(String[] args) {
-        LinkedList myLinkedList = new LinkedList(10);
-        myLinkedList.append(30);
-        myLinkedList.prepend(20);
+        LinkedList myLinkedList = new LinkedList(30);
+        myLinkedList.append(40);
+        myLinkedList.prepend(10);
 //       myLinkedList.removeLast();
 //    myLinkedList.removeFirst();
+        myLinkedList.remove(2);
 //        System.out.println(myLinkedList.get(2).value);
 //        myLinkedList.set(2 , 30);
-        myLinkedList.insert(1, 25);
+        myLinkedList.insert(1, 15);
         myLinkedList.getHead();
         myLinkedList.getTail();
         myLinkedList.getLength();
         myLinkedList.printAll();
 
+    }
+    public Node remove(int index){
+        if(index < 0 || index >= length) return null;
+        if (index ==0) return removeFirst();
+        if (index == length -1) return removeLast();
+        Node prev = get(index -1);
+        Node temp = prev.next;
+        prev.next = temp.next;
+        temp.next = null;
+        length--;
+return temp;
     }
     public boolean insert(int index, int value){
         if(index < 0 || index >= length)return false;
