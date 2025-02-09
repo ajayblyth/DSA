@@ -1,20 +1,26 @@
 public  class LinkedList {
     public static void main(String[] args) {
-        LinkedList myLinkedList = new LinkedList(30);
+        LinkedList myLinkedList = new LinkedList(10);
+        myLinkedList.append(20);
+        myLinkedList.append(30);
         myLinkedList.append(40);
-        myLinkedList.prepend(10);
+        myLinkedList.append(50);
+
+//        myLinkedList.prepend(10);
 //       myLinkedList.removeLast();
 //    myLinkedList.removeFirst();
-        myLinkedList.remove(2);
+//        myLinkedList.remove(2);
 //        System.out.println(myLinkedList.get(2).value);
-        myLinkedList.set(2 , 30);
-        myLinkedList.insert(1, 15);
-        myLinkedList.getHead();
-        myLinkedList.getTail();
-        myLinkedList.getLength();
+        myLinkedList.reverse();
+//        myLinkedList.set(2 , 30);
+//        myLinkedList.insert(1, 15);
+//        myLinkedList.getHead();
+//        myLinkedList.getTail();
+//        myLinkedList.getLength();
         myLinkedList.printAll();
 
     }
+
     private Node remove(int index){
         if(index < 0 || index >= length) return null;
         if (index ==0) return removeFirst();
@@ -25,6 +31,22 @@ public  class LinkedList {
         temp.next = null;
         length--;
         return temp;
+    }
+    private void reverse(){
+        Node temp = head;
+        head = tail;
+        tail = temp;
+        Node after = temp.next;
+        Node before = null;
+        for(int i = 0; i < length; i++){
+            after =  temp.next; //move forward
+            temp.next = before; // reverse
+            before = temp; //update before
+            temp = after; //update temp
+
+        }
+
+
     }
     public boolean insert(int index, int value){
         if(index < 0 || index >= length)return false;
@@ -137,7 +159,7 @@ return true;
     private void printAll() {
         Node temp = head;
         while (temp != null) {
-            System.out.print(  temp.value + " ");
+            System.out.println(  temp.value + " ");
             temp = temp.next;
 
         }
