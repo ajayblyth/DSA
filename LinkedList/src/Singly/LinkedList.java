@@ -105,7 +105,7 @@ return true;
         tail = pre;
         tail.next = null;
         length--;
-        if (length ==0){
+        if (length == 1){
             head = null;
             tail =null;
         }

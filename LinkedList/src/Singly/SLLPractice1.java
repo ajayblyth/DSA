@@ -5,15 +5,17 @@ public class SLLPractice1 {
       LinkedList myLinkedList = new LinkedList(11);
       myLinkedList.append(22);
       myLinkedList.prepend(10);
-      myLinkedList.removeFirst();
+        System.out.println(myLinkedList.get(0).value);
+//      myLinkedList.removeFirst();
+//      myLinkedList.removeLast();
         myLinkedList.printAll();
 
     }
 
         public static class LinkedList{
-        private Node head;
-        private Node tail;
-        private int length;
+         Node head;
+         Node tail;
+         int length;
 
         class Node {
             int value;
@@ -73,7 +75,35 @@ public class SLLPractice1 {
 
             return temp;
         }
+            public Node removeLast(){
+                if(length == 0) return null;
+                Node temp = head;
+                Node prev = head;
+                while(temp.next != null){
+                    prev = temp;
+                    temp = temp.next;
+                }
+                tail = prev;
+                tail.next = null;
+                length --;
+                return temp;
+
         }
+
+            public Node get(int index) {
+                if(index <0 || index >= length)return null;
+                Node temp = head;
+
+                for( int i = 0; i <index ; i++){
+                    temp = temp.next;
+                }return temp;
+
+            }
+
+    }
+
+
+
 
 
 }
