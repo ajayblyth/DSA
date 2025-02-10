@@ -13,6 +13,7 @@ public class SLLPractice1 {
 //        myLinkedList.remove(2);
 //      myLinkedList.removeFirst();
 //      myLinkedList.removeLast();
+        myLinkedList.reverse();
         myLinkedList.printAll();
 
     }
@@ -139,7 +140,25 @@ public class SLLPractice1 {
             length++;
             return true;
 
-    }}
+    }
+    public void reverse(){
+
+            Node temp = head;
+            head = tail;
+            tail = temp;
+            Node before = null;
+            Node after = temp.next;
+            while(temp!= null){
+                after = temp.next; //assign after
+                temp.next = before;
+                before = temp; //before updated
+                temp = after; //temp updated
+
+
+            }
+
+    }
+    }
 
 
 }
