@@ -5,8 +5,10 @@ public class DoublyLinkedList {
         DoublyLinkedList myDLL = new DoublyLinkedList(1);
         myDLL.append(2);
         myDLL.prepend(0);
-        myDLL.removeFirst();
-        myDLL.removeLast();
+//        myDLL.removeFirst();
+//        myDLL.removeLast();
+        System.out.println(myDLL.get(0).value);
+        myDLL.set(0, 9);
 
         myDLL.printAll();
     }
@@ -32,7 +34,7 @@ Node(int value){
     public void printAll(){
         Node temp = head;
         while (temp != null){
-            System.out.println(temp.value);
+            System.out.print(temp.value + " ");
             temp = temp.next;
 
         }}
@@ -79,5 +81,33 @@ Node(int value){
       tail.next = null;
        length -- ;
        return temp;
+    }
+    public Node get(int index) {
+        if (index < 0 || index >= length) return null;
+        Node temp = head;
+        if (index < length / 2) {
+            for (int i = 0; i < index; i++) {
+                temp = temp.next;
+            }
+        } else {
+            temp = tail;
+            for (int i = length - 1; i > index; i++) {
+                temp = tail.prev;
+            }
+
+        }return temp;
+
+
+    }
+    public boolean set(int index , int value){
+       if(index < 0 || index >= length)return false;
+        Node temp =get(index);
+
+        if(temp !=null){
+           temp.value = value;
+return true;
+       }
+
+return  false;
     }
 }
