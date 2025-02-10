@@ -9,6 +9,8 @@ public class DoublyLinkedList {
 //        myDLL.removeLast();
         System.out.println(myDLL.get(0).value);
         myDLL.set(0, 9);
+        myDLL.insert(1, 22);
+        myDLL.remove(0);
 
         myDLL.printAll();
     }
@@ -109,5 +111,36 @@ return true;
        }
 
 return  false;
+    }
+    public Node remove(int index){
+       if(index < 0 || index >= length) return null;
+       if (index == 0) return removeFirst();
+       if (index == length-1)return  removeLast();
+       Node temp = get(index);
+       temp.prev.next = temp.next;
+       temp.next.prev = temp.prev;
+       temp.next = null;
+       temp.prev = null;
+       length--;
+       return temp;
+   } public boolean insert(int index, int value){
+       if(index <0 || index >= length)return  false;
+       if(index == 0){
+           prepend(value);
+           return  true;
+       }
+       if(index == length-1){
+           prepend(value);
+           return true;
+       }
+       Node newNode = new Node(value);
+       Node before = get(index -1);
+       Node after = before.next;
+        newNode.prev = before;
+       newNode.next = after;
+        before.next = newNode;
+       after.prev = newNode;
+       length++;
+       return true;
     }
 }
