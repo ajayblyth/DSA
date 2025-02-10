@@ -5,6 +5,8 @@ public class DoublyLinkedList {
         DoublyLinkedList myDLL = new DoublyLinkedList(1);
         myDLL.append(2);
         myDLL.prepend(0);
+        myDLL.removeFirst();
+        myDLL.removeLast();
 
         myDLL.printAll();
     }
@@ -58,5 +60,24 @@ Node(int value){
            newNode.next = head;
            head = newNode;
        }length++;
+    }
+    public Node removeFirst(){
+
+       if( length==0)return null;
+       Node temp = head;
+       head = head.next;
+       temp.next = null;
+       head.prev = null;
+       length--;
+       return temp;
+    }
+    public Node removeLast(){
+       if(length==0)return  null;
+       Node temp = tail;
+      tail = tail.prev;
+      temp.prev = null;
+      tail.next = null;
+       length -- ;
+       return temp;
     }
 }
