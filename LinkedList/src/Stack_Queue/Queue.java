@@ -23,6 +23,7 @@ public class Queue {
         Node temp = first;
         System.out.println(temp.value);
         temp = temp.next;
+//
 
     }
     public void getFirst(){
