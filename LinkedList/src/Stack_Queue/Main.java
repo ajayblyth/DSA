@@ -12,9 +12,10 @@ public class Main {
 //        myStack.printAll();
 
         Queue myQueue = new Queue(10);
-        myQueue.printAll();
+        myQueue.enqueue(20);
         myQueue.getFirst();
         myQueue.getLength();
+        myQueue.printAll();
 
 
     }

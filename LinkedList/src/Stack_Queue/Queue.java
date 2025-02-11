@@ -19,10 +19,26 @@ public class Queue {
         length = 1;
 
     }
+    public void enqueue(int value){
+        Node newNode = new Node(value);
+        if(length == 0){
+            first = newNode;
+            last = newNode;
+            length++;
+        }else{
+            last.next = newNode;
+            last = newNode;
+        }length++;
+
+    }
+
     public void printAll(){
         Node temp = first;
-        System.out.println(temp.value);
-        temp = temp.next;
+        while(temp != null){
+            System.out.println(temp.value);
+            temp = temp.next;
+        }
+
 //
 
     }
