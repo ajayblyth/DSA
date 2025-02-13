@@ -29,4 +29,14 @@ public class HashTable {
 
 
     }
+    private int hash(String key){
+        int hash = 0;
+        char[] carr = key.toCharArray();
+        for(int i=0; i< carr.length; i++){
+
+            int ascii = carr[i];
+            hash = (hash + ascii *23) % dataMap.length;
+        }
+        return hash;
+    }
 }
