@@ -1,5 +1,7 @@
 package HashTable;
 
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
 HashTable myHashTable = new HashTable();
@@ -11,11 +13,11 @@ myHashTable.set("nails", 1000);
 
         myHashTable.set("screws", 843);
 
-        System.out.println(myHashTable.get("screws"));
-        System.out.println(myHashTable.get("yo"));
+//        System.out.println(myHashTable.get("screws"));
+//        System.out.println(myHashTable.get("yo"));
 
-
-
+        var keys = myHashTable.keys();
+        System.out.println(keys);
 //        myHashTable.printAll();
     }
 }
