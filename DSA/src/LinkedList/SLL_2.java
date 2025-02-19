@@ -18,6 +18,9 @@ package LinkedList;
         myLinkedList.insert(2,302);
         System.out.println(myLinkedList.remove(3).value);
         myLinkedList.printAll();
+        myLinkedList.reverse();
+        myLinkedList.printAll();
+
         myLinkedList.getLength();
     }
   public static class LinkedList{
@@ -155,6 +158,23 @@ public Boolean insert(int index, int value){
               temp.next = null;
               length--;
               return temp;
+
+      }
+      public void reverse(){
+             Node temp = head;
+             head = tail ;
+             tail = temp;
+             Node after = temp.next;
+             Node before = null;
+             for (int i = 0; i < length ; i++){
+                 after = temp.next;
+                 temp.next = before;
+                 before= temp;
+                 temp = after;
+
+             }
+
+
 
       }
 
