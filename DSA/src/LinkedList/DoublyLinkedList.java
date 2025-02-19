@@ -94,7 +94,7 @@ Node(int value){
         } else {
             temp = tail;
             for (int i = length - 1; i > index; i++) {
-                temp = tail.prev;
+                temp = temp.prev;
             }
 
         }return temp;
@@ -130,7 +130,7 @@ return  false;
            return  true;
        }
        if(index == length-1){
-           prepend(value);
+           append(value);
            return true;
        }
        Node newNode = new Node(value);

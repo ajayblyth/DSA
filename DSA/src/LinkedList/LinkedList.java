@@ -18,7 +18,7 @@ public  class LinkedList {
 //        myLinkedList.insert(1, 15);
 //        myLinkedList.getHead();
 //        myLinkedList.getTail();
-//        myLinkedList.getLength();
+        myLinkedList.getLength();
         myLinkedList.printAll();
 
     }
@@ -41,7 +41,7 @@ public  class LinkedList {
         Node after = temp.next;
         Node before = null;
         for(int i = 0; i < length; i++){
-            after =  temp.next; //move forward
+            after =  temp.next; //assign after
             temp.next = before; // reverse
             before = temp; //update before
             temp = after; //update temp
@@ -51,12 +51,12 @@ public  class LinkedList {
 
     }
     public boolean insert(int index, int value){
-        if(index < 0 || index >= length)return false;
+        if(index < 0 || index > length)return false;
         if (index == 0){
             prepend(value);
             return true;
         }
-        if(index == length-1){
+        if(index == length){
             append(value);
             return  true;
         }
