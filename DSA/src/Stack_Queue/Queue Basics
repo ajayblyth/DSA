@@ -1,0 +1,81 @@
+Queue - Theory, Operations, Features, and Big O Analysis
+1. What is a Queue?
+A Queue is a linear data structure that follows the FIFO (First In, First Out) principle,
+meaning the element added first is the first to be removed.
+
+Example Analogy: A queue in a ticket counter – the person who joins first gets served first.
+Usage in Programming: Scheduling tasks, print queue management, CPU task scheduling, etc.
+
+2. Queue Operations
+A. Basic Operations
+Operation	           Description	                                      Time Complexity
+Enqueue(x)	           Inserts element x at the rear	                     O(1)
+Dequeue()	           Removes and returns the front element	             O(1)
+Peek()/Front()        	Returns the front element without removing it	      O(1)
+isEmpty()	            Checks if the queue is empty	                      O(1)
+Size()	                Returns the number of elements in the queue          O(1)
+
+B. Additional Operations
+
+Operation	    Description                          	Time Complexity
+Search(x)	    Searches for an element in the queue	  O(n)
+Reverse Queue	Reverses the queue elements	              O(n)
+
+3. Features of Queue
+FIFO Order – The first inserted element is the first to be removed.
+Efficient Operations – Enqueue() and Dequeue() take O(1) time.
+
+Can be Implemented Using:
+Array (Fixed size, simple implementation)
+Linked List (Dynamic size, no wasted space)
+
+Used in Scheduling – CPU scheduling, task execution.
+Memory Efficient – Uses minimal extra memory apart from stored elements.
+
+4. Types of Queues
+1. Simple Queue
+
+Basic FIFO structure.
+Elements are added at the rear and removed from the front.
+
+2. Circular Queue
+Overcomes the limitation of a simple queue (fixed size).
+Uses modulo (%) operator to reuse the available space.
+
+3. Double-Ended Queue (Deque)
+Allows insertion and deletion from both ends.
+
+Types:
+Input-Restricted Deque: Insertion only at one end, deletion from both ends.
+Output-Restricted Deque: Deletion only at one end, insertion from both ends.
+
+4. Priority Queue
+Each element has a priority.
+Elements with higher priority are dequeued before lower priority ones.
+----------------------------------------------
+5. Queue Implementations
+A queue can be implemented in two ways:
+
+Using Arrays
+Fixed size (Static allocation)
+Fast access but size cannot be changed dynamically
+Using Linked List
+Dynamic size (No wasted space)
+Extra memory for pointers
+--------------------------------------------------
+6. Big O Complexity Analysis
+Operation	Best Case	       Average Case	    Worst Case
+Enqueue(x)	 O(1)	                O(1)	      O(1)
+Dequeue()	 O(1)	                O(1)	      O(1)
+Peek()	     O(1)	                O(1)	      O(1)
+isEmpty()    O(1)	                O(1)	      O(1)
+Search(x)	 O(1) (front element)	O(n)	      O(n)
+
+------------------------------------------------
+7. Applications of Queue
+✅ CPU Scheduling – Processes are scheduled in a queue.
+✅ Print Queue Management – Printer jobs are handled in FIFO order.
+✅ Breadth-First Search (BFS) – Graph traversal algorithm.
+✅ Task Scheduling – Background jobs execution.
+✅ Network Packet Handling – Data packets are queued before processing.
+

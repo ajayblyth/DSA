@@ -1,4 +1,4 @@
-package LinkedList;
+package practice;
 
 public class SLLPractice1 {
     public static void main(String[] args) {
