@@ -1,0 +1,65 @@
+Stack - Theory, Operations, Features, and Big O Analysis
+1. What is a Stack?
+A Stack is a linear data structure that follows the LIFO (Last In, First Out) principle, meaning the last element inserted is the first one to be removed.
+
+Example Analogy: A stack of plates in a cafeteria – the last plate added is the first one removed.
+
+Usage in Programming: Function calls (call stack), undo/redo functionality, expression evaluation, etc.
+2. Stack Operations
+A. Basic Operations
+
+Operation	        Description	                                Time Complexity
+Push(x)	            Inserts element x at the top	               O(1)
+Pop()	             Removes and returns the top element	        O(1)
+Peek()/Top()	     Returns the top element without removing it	O(1)
+isEmpty()	           Checks if the stack is empty	                  O(1)
+Size()	             Returns the number of elements in the stack	  O(1)
+
+B. Additional Operations
+Operation	      Description	                             Time Complexity
+Search(x)         Searches for an element in the stack	          O(n)
+Reverse Stack	   Reverses the stack elements	                  O(n)
+Sort Stack	       Sorts the stack elements                    	O(n log n) (using recursion)
+
+3. Features of Stack
+
+LIFO Order – The last inserted element is the first to be removed.
+
+Constant Time Operations – Push(), Pop(), Peek() all take O(1) time.
+
+Limited Access – Only the top element can be accessed directly.
+
+Can be Implemented Using:
+Array (Fixed size, fast access)
+
+Linked List (Dynamic size, uses extra memory for pointers)
+
+Used in Recursion – Function calls are managed using a stack.
+
+Memory Efficient – Uses minimal extra memory apart from stored elements.
+
+4. Stack Implementations
+
+A stack can be implemented in two ways:
+
+Using Arrays
+Fixed size (Static allocation)
+Fast access but size cannot be changed dynamically
+Using Linked List
+
+Dynamic size (No wasted space)
+Extra memory for pointers
+
+
+5. Big O Complexity Analysis
+Operation	Best Case	Average Case	Worst Case
+Push(x) 	O(1)	         O(1)	      O(1)
+Pop()	    O(1)	          O(1)         O(1)
+Peek()   	O(1)	          O(1)	       O(1)
+isEmpty()	O(1)	           O(1)	       O(1)
+Search(x)	O(1) (top element) O(n)	       O(n)
+
+6. Applications of Stack
+✅ Undo/Redo Operations – Used in text editors and Photoshop.
+✅ Browser History – Storing previously visited pages.
+
