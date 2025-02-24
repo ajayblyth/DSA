@@ -1,0 +1,219 @@
+Binary Search Tree (BST) – Concept and Operations
+What is a Binary Search Tree (BST)?
+A Binary Search Tree (BST) is a special type of binary tree where each node follows the binary search property:
+
+The left subtree of a node contains only nodes with values smaller than the node's value.
+The right subtree of a node contains only nodes with values greater than the node's value.
+Both left and right subtrees must also be binary search trees.
+Example of a BST
+markdown
+Copy
+Edit
+        50
+       /  \
+     30    70
+    /  \   /  \
+   20  40 60  80
+Here,
+
+30 < 50, 70 > 50 (BST property maintained).
+20 < 30, 40 > 30 (Left subtree of 50 is a BST).
+60 < 70, 80 > 70 (Right subtree of 50 is a BST).
+Operations in a Binary Search Tree
+1. Insertion
+We insert a new node by comparing values recursively:
+If the new value is smaller, go to the left subtree.
+If the new value is greater, go to the right subtree.
+When we reach a null position, insert the node there.
+Code for Insertion
+java
+Copy
+Edit
+class Node {
+    int value;
+    Node left, right;
+
+    public Node(int value) {
+        this.value = value;
+        left = right = null;
+    }
+}
+
+class BinarySearchTree {
+    Node root;
+
+    public void insert(int value) {
+        root = insertRec(root, value);
+    }
+
+    private Node insertRec(Node root, int value) {
+        if (root == null) {
+            return new Node(value);
+        }
+        if (value < root.value) {
+            root.left = insertRec(root.left, value);
+        } else if (value > root.value) {
+            root.right = insertRec(root.right, value);
+        }
+        return root;
+    }
+
+    public void inorder() { inorderRec(root); }
+
+    private void inorderRec(Node root) {
+        if (root != null) {
+            inorderRec(root.left);
+            System.out.print(root.value + " ");
+            inorderRec(root.right);
+        }
+    }
+}
+
+// Usage
+public class Main {
+    public static void main(String[] args) {
+        BinarySearchTree bst = new BinarySearchTree();
+        bst.insert(50);
+        bst.insert(30);
+        bst.insert(70);
+        bst.insert(20);
+        bst.insert(40);
+        bst.insert(60);
+        bst.insert(80);
+
+        System.out.print("Inorder Traversal: ");
+        bst.inorder();  // Output: 20 30 40 50 60 70 80
+    }
+}
+✔ Time Complexity: O(log n) (if balanced), O(n) (if unbalanced).
+✔ Space Complexity: O(h) (where h is the height of the tree).
+
+2. Search
+We search a value using the BST property:
+If the value is equal to the current node, return true.
+If the value is smaller, search in the left subtree.
+If the value is greater, search in the right subtree.
+Code for Searching an Element
+java
+Copy
+Edit
+public boolean search(int value) {
+    return searchRec(root, value);
+}
+
+private boolean searchRec(Node root, int value) {
+    if (root == null) return false;
+    if (root.value == value) return true;
+    return value < root.value ? searchRec(root.left, value) : searchRec(root.right, value);
+}
+✔ Time Complexity: O(log n) (if balanced), O(n) (if unbalanced).
+✔ Space Complexity: O(1) (iterative) or O(h) (recursive).
+
+3. Deletion
+There are three cases when deleting a node:
+Node has no child (Leaf Node) → Simply remove the node.
+Node has one child → Replace the node with its child.
+Node has two children → Replace the node with its inorder successor (smallest value in the right subtree).
+Code for Deletion
+java
+Copy
+Edit
+public void delete(int value) {
+    root = deleteRec(root, value);
+}
+
+private Node deleteRec(Node root, int value) {
+    if (root == null) return root;
+
+    if (value < root.value) {
+        root.left = deleteRec(root.left, value);
+    } else if (value > root.value) {
+        root.right = deleteRec(root.right, value);
+    } else {
+        // Case 1 & 2: Node with one or no child
+        if (root.left == null) return root.right;
+        if (root.right == null) return root.left;
+
+        // Case 3: Node with two children - get inorder successor
+        root.value = minValue(root.right);
+        root.right = deleteRec(root.right, root.value);
+    }
+    return root;
+}
+
+private int minValue(Node root) {
+    int minV = root.value;
+    while (root.left != null) {
+        minV = root.left.value;
+        root = root.left;
+    }
+    return minV;
+}
+✔ Time Complexity: O(log n) (if balanced), O(n) (if unbalanced).
+✔ Space Complexity: O(h).
+
+4. Traversal Methods
+(a) Inorder Traversal (Left → Root → Right)
+
+Prints elements in sorted order for a BST.
+java
+Copy
+Edit
+public void inorder() {
+    inorderRec(root);
+}
+private void inorderRec(Node root) {
+    if (root != null) {
+        inorderRec(root.left);
+        System.out.print(root.value + " ");
+        inorderRec(root.right);
+    }
+}
+Output: 20 30 40 50 60 70 80
+
+(b) Preorder Traversal (Root → Left → Right)
+
+Useful for copying the tree.
+java
+Copy
+Edit
+public void preorder() {
+    preorderRec(root);
+}
+private void preorderRec(Node root) {
+    if (root != null) {
+        System.out.print(root.value + " ");
+        preorderRec(root.left);
+        preorderRec(root.right);
+    }
+}
+Output: 50 30 20 40 70 60 80
+
+(c) Postorder Traversal (Left → Right → Root)
+
+Used for deleting the tree.
+java
+Copy
+Edit
+public void postorder() {
+    postorderRec(root);
+}
+private void postorderRec(Node root) {
+    if (root != null) {
+        postorderRec(root.left);
+        postorderRec(root.right);
+        System.out.print(root.value + " ");
+    }
+}
+Output: 20 40 30 60 80 70 50
+
+Summary
+Operation	Time Complexity (Best/Average)	Time Complexity (Worst)
+Insertion	O(log n)	O(n)
+Search	O(log n)	O(n)
+Deletion	O(log n)	O(n)
+Traversal (Inorder, Preorder, Postorder)	O(n)	O(n)
+Key Points
+Balanced BSTs (like AVL trees, Red-Black trees) ensure O(log n) complexity for operations.
+Skewed BSTs (e.g., inserting sorted data into a normal BST) degrade to O(n) complexity.
+Inorder traversal gives elements in sorted order.

@@ -1,0 +1,143 @@
+1. What is an Array?
+An array is a data structure that stores multiple values of the same data type in a contiguous memory location.
+It allows indexed access to elements, making retrieval efficient.
+
+2. Features of an Array
+
+Fixed Size: Once declared, the size of the array cannot be changed.
+Same Data Type: All elements in an array must be of the same type.
+Indexed Access: Elements are accessed using a zero-based index.
+Efficient Retrieval: Accessing elements is fast (O(1) time complexity).
+
+3. Syntax and Creation of an Array
+Declaration
+
+// Syntax: dataType[] arrayName;
+
+int[] numbers;
+
+Memory Allocation
+// Allocating memory for 5 elements
+numbers = new int[5];
+
+Declaration and Initialization
+
+// Declaring and initializing an array
+int[] numbers = {10, 20, 30, 40, 50};
+
+
+Creating a Multidimensional Array
+
+// 2D array declaration
+int[][] matrix = new int[3][3];
+
+// Initializing values
+int[][] matrix2 = {
+    {1, 2, 3},
+    {4, 5, 6},
+    {7, 8, 9}
+};
+----------------------------------------------------
+4. Array Operations
+
+1. Accessing Elements
+
+System.out.println(numbers[2]); // Output: 30
+
+2. Modifying an Element
+
+numbers[1] = 25; // Changes 20 to 25
+
+3. Traversing an Array
+Using a for loop:
+
+for (int i = 0; i < numbers.length; i++) {
+    System.out.print(numbers[i] + " ");
+}
+
+Using an enhanced for loop:
+
+for (int num : numbers) {
+    System.out.print(num + " ");
+}
+
+4. Searching for an Element
+
+Linear Search (O(n)):
+
+int key = 30;
+boolean found = false;
+for (int num : numbers) {
+    if (num == key) {
+        found = true;
+        break;
+    }
+}
+System.out.println(found ? "Element Found" : "Not Found");
+
+Binary Search (O(log n)) – Works on sorted arrays:
+
+Arrays.sort(numbers);
+int index = Arrays.binarySearch(numbers, 30);
+System.out.println(index >= 0 ? "Found at index " + index : "Not Found");
+
+5. Sorting an Array
+
+Arrays.sort(numbers);  // Sorts in ascending order
+
+6. Copying an Array
+
+int[] copy = Arrays.copyOf(numbers, numbers.length);
+
+7. Reversing an Array
+
+for (int i = 0, j = numbers.length - 1; i < j; i++, j--) {
+    int temp = numbers[i];
+    numbers[i] = numbers[j];
+    numbers[j] = temp;
+}
+8. Finding Maximum and Minimum
+
+int max = Arrays.stream(numbers).max().getAsInt();
+int min = Arrays.stream(numbers).min().getAsInt();
+
+9. Sum and Average of Elements
+
+int sum = 0;
+for (int num : numbers) {
+    sum += num;
+}
+
+double average = (double) sum / numbers.length;
+10. Removing an Element (Shifting Elements)
+
+int removeIndex = 2;
+for (int i = removeIndex; i < numbers.length - 1; i++) {
+    numbers[i] = numbers[i + 1];
+}
+// Reduce array size by ignoring the last element
+
+--------------------------------------------------------------
+5. Pros and Cons of Arrays
+Pros
+Fast Element Access (O(1)) using an index.
+Efficient Storage since elements are stored contiguously.
+Better Cache Locality, leading to improved performance.
+
+Cons
+Fixed Size, which cannot be changed dynamically.
+Insertion & Deletion are costly (O(n)) since elements must be shifted.
+Consumes contiguous memory, which may not always be available.
+--------------------------------------------------------------
+
+6. Common Array Interview Questions
+Now that you have a strong understanding, try solving these:
+
+Find the second largest number in an array.
+Reverse an array without using extra space.
+Remove duplicates from a sorted array.
+Find the missing number in a given range.
+Find the majority element in an array.
+Kadane’s Algorithm to find the maximum subarray sum.
+Merge two sorted arrays without extra space.
+Move all zeroes to the end of the array
